@@ -1,0 +1,15 @@
+INSERT INTO event_types (id_event_type, name) VALUES
+(1,  'service'),
+(2,  'diagnosis'),
+(3,  'birth'),
+(4,  'weaning'),
+(5,  'weight_record'),
+(6,  'rearing_selection'),
+(7,  'purchase'),
+(8,  'sale'),
+(9,  'transfer'),
+(10, 'exit'),
+(11, 'vaccination'),
+(12, 'treatment'),
+(13, 'health_incident'),
+(14, 'fattening_entry');
