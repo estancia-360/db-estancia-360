@@ -1,4 +1,4 @@
 INSERT INTO roles (id_role, name) VALUES
-    (1, 'root'),
-    (2, 'admin'),
-    (3, 'user');
+    (1, 'Root'),
+    (2, 'Admin'),
+    (3, 'Usuario');

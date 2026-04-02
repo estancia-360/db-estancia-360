@@ -1,5 +1,5 @@
 INSERT INTO productive_statuses (id_productive_status, name) VALUES
-(1, 'Breeding'),
-(2, 'Rearing'),
-(3, 'Fattening'),
-(4, 'Discharged');
+(1, 'Cría'),
+(2, 'Recría'),
+(3, 'Engorde'),
+(4, 'Baja');

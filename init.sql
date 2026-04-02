@@ -24,6 +24,7 @@ END $$;
 \i animal-statuses/init.sql
 \i ranch-pastures/init.sql
 \i ranch-lots/init.sql
+\i animal-classes/init.sql
 \i ranch-animals/init.sql
 \i event-types/init.sql
 \i animal-events/init.sql
