@@ -68,3 +68,4 @@ CREATE TABLE ranch_animals (
     FOREIGN KEY (id_animal_class) REFERENCES animal_classes(id_animal_class),
     FOREIGN KEY (id_lot) REFERENCES ranch_lots(id_lot)
 );
+ALTER TABLE ranch_animals ADD COLUMN local_id VARCHAR(100) UNIQUE;

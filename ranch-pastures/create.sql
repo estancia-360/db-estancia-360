@@ -36,3 +36,4 @@ CREATE TABLE ranch_pastures (
     primary key (id_ranch_pasture),
     foreign key (id_ranch) references ranches(id_ranch)
 );
+ALTER TABLE ranch_pastures ADD COLUMN local_id VARCHAR(100) UNIQUE;

@@ -66,3 +66,5 @@ CREATE TABLE parturitions (
     FOREIGN KEY (id_diagnosis) REFERENCES gestation_diagnoses(id_diagnosis) ON DELETE CASCADE,
     FOREIGN KEY (id_cria) REFERENCES ranch_animals(id_ranch_animal) ON DELETE CASCADE
 );
+ALTER TABLE parturitions
+ADD COLUMN local_id VARCHAR(100) UNIQUE NULL;

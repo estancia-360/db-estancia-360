@@ -57,3 +57,5 @@ CREATE TABLE breeding_services (
     FOREIGN KEY (id_event) REFERENCES animal_events(id_animal_event) ON DELETE CASCADE,
     FOREIGN KEY (id_animal_male) REFERENCES ranch_animals(id_ranch_animal) ON DELETE CASCADE
 );
+ALTER TABLE breeding_services 
+ADD COLUMN local_id VARCHAR(100) UNIQUE NULL;

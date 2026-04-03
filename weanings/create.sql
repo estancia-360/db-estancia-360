@@ -61,3 +61,5 @@ CREATE TABLE weanings (
     FOREIGN KEY (id_cria) REFERENCES ranch_animals(id_ranch_animal) ON DELETE CASCADE,
     FOREIGN KEY (id_lot_dest) REFERENCES ranch_lots(id_lot) ON DELETE CASCADE
 );
+ALTER TABLE weanings
+ADD COLUMN local_id VARCHAR(100) UNIQUE NULL;

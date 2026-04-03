@@ -59,3 +59,5 @@ CREATE TABLE gestation_diagnoses (
     FOREIGN KEY (id_event) REFERENCES animal_events(id_animal_event) ON DELETE CASCADE,
     FOREIGN KEY (id_service) REFERENCES breeding_services(id_service) ON DELETE CASCADE
 );
+ALTER TABLE gestation_diagnoses
+ADD COLUMN local_id VARCHAR(100) UNIQUE NULL;

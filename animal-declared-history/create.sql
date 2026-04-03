@@ -41,3 +41,5 @@ CREATE TABLE animal_declared_history (
     PRIMARY KEY (id_history),
     FOREIGN KEY (id_ranch_animal) REFERENCES ranch_animals(id_ranch_animal)
 );
+ALTER TABLE animal_declared_history
+ADD COLUMN local_id VARCHAR(100) UNIQUE NULL;
