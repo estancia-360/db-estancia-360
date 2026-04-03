@@ -44,10 +44,10 @@ CREATE TABLE ranch_lots (
     name                VARCHAR(50)     NOT NULL,
     lot_type            VARCHAR(30)
         CHECK (lot_type IN (
-            'breeding',
-            'rearing',
-            'fattening',
-            'reproductive',
+            'cria',
+            'recria',
+            'engorde',
+            'reproductiva',
             'general'
         )),
     capacity            INT,                           -- capacidad máxima de animales del lote (RF-01.6)
