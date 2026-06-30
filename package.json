@@ -1,0 +1,18 @@
+{
+  "name": "db-estancia-360",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "migrate": "tsx scripts/migrate.ts",
+    "rollback": "tsx scripts/rollback.ts"
+  },
+  "dependencies": {
+    "pg": "^8.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@types/pg": "^8.20.0",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3"
+  }
+}
