@@ -10,6 +10,14 @@ paths:
 `migrations/` es **append-only** e **inmutable**. Solo se agregan carpetas nuevas al final.
 Nunca editar `up.sql` de una migración ya aplicada — si hay un error, crear una nueva migración que lo corrija.
 
+## Granularidad — qué va en una sola migración
+
+Si Jaime pide varios cambios de schema en la misma sesión/conversación (aunque sean sobre
+tablas distintas y conceptualmente separables entre sí), van todos en **una sola migración**:
+un `up.sql` que aplica los N cambios en orden, un `down.sql` que los revierte todos (en orden
+inverso). Solo se separan en migraciones distintas cuando el pedido llega en un momento
+distinto (otra sesión) o Jaime pide explícitamente separarlos.
+
 ## Estructura de cada migración
 
 Cada migración es una **carpeta**, no un archivo suelto:
