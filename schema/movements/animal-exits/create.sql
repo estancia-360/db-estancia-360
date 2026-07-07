@@ -26,8 +26,9 @@
 --      - id_status = 3 (Inactivo)
 --
 -- CAMPOS:
---   - reason: causa de la salida (categorizado con CHECK)
---   - notes:  detalle adicional obligatorio si reason='other'
+--   - reason:    causa de la salida (categorizado con CHECK)
+--   - notes:     detalle adicional obligatorio si reason='other'
+--   - local_id:  UUID generado por el cliente para idempotencia offline
 -- ============================================================
 
 CREATE TABLE animal_exits (
@@ -41,6 +42,7 @@ CREATE TABLE animal_exits (
             'other'        -- otra causa documentada en notes
         )),
     notes               TEXT,
+    local_id            VARCHAR(100) UNIQUE,
     created_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_exit),
