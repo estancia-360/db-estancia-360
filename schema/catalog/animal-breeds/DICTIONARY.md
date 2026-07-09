@@ -18,4 +18,8 @@ Catálogo de razas bovinas disponibles para asignar a un animal. A diferencia de
 
 ## Notas técnicas
 
-- El dato semilla actual solo carga una raza ('VACA') como placeholder inicial; se espera que la estancia complete el catálogo según su operación.
+- El dato semilla (`data.sql`) carga 9 razas comunes en la ganadería boliviana, agrupadas por función:
+  - **Carne**: Nelore, Brahman, Senepol, Sindi
+  - **Leche**: Holstein, Pardo Suizo, Jersey
+  - **Criollas/mestizas**: Criollo Boliviano, Mestizo
+- No es una lista cerrada — la estancia puede agregar o desactivar (`is_active=FALSE`) las razas que use.

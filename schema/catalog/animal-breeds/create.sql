@@ -6,6 +6,13 @@
 -- una raza (ranch_animals.id_breed). Las razas son gestionadas por
 -- la estancia (pueden agregar las que usen). Es_active permite
 -- desactivar razas sin eliminar el historial.
+--
+-- SEED (data.sql): razas comunes en la ganadería boliviana, agrupadas
+-- por función —
+--   Carne:    Nelore, Brahman, Senepol, Sindi
+--   Leche:    Holstein, Pardo Suizo, Jersey
+--   Criollas: Criollo Boliviano, Mestizo
+-- No es una lista cerrada — la estancia puede agregar/desactivar razas.
 -- ============================================================
 
 CREATE TABLE animal_breeds (
