@@ -1,0 +1,2 @@
+-- sin datos iniciales — se crea una fila por estancia automáticamente
+-- al registrarla (RanchesService.create), no vía seed

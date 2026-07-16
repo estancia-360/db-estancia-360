@@ -15,6 +15,9 @@
 -- ranches
 \i schema/ranches/init.sql
 
+-- payments
+\i schema/payments/init.sql
+
 -- animals
 \i schema/animals/init.sql
 
