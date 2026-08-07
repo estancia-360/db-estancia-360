@@ -11,6 +11,7 @@ Registra el ingreso formal de un animal al ciclo de Engorde. Un animal llega a E
 | system_type | VARCHAR(20) | NO | — | Sistema de engorde: `field` (campo abierto) o `feedlot` (corral de engorde). |
 | initial_weight | NUMERIC(6,2) | SÍ | — | Peso del animal al iniciar el ciclo de engorde; base para calcular la ganancia posterior. |
 | notes | TEXT | SÍ | — | Observaciones adicionales sobre el ingreso. |
+| local_id | VARCHAR(100) | SÍ | — | ID generado por el cliente offline, único; permite reintentar el sync sin duplicar el registro. |
 | created_at | TIMESTAMP | NO | CURRENT_TIMESTAMP | Fecha de creación del registro. |
 | updated_at | TIMESTAMP | NO | CURRENT_TIMESTAMP | Fecha de última actualización del registro. |
 

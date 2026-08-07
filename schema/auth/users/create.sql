@@ -24,6 +24,9 @@
 --   - maternal_surname: apellido materno (opcional)
 --   - password:         almacenada encriptada (bcrypt) (RNF-05.1)
 --   - is_deleted:       borrado lógico (preserva historial de eventos)
+--   - reset_code_hash / reset_code_expires_at: código de "recuperar contraseña" vigente,
+--     hasheado (bcrypt, igual que password) — nunca se guarda en texto plano. NULL cuando no
+--     hay ningún código pendiente (se limpian al usarse o al pedir uno nuevo).
 -- ============================================================
 
 CREATE TABLE users (
@@ -36,6 +39,8 @@ CREATE TABLE users (
     email VARCHAR(150) NOT NULL,
     password VARCHAR(255) NOT NULL,
     celphone VARCHAR(20),
+    reset_code_hash VARCHAR(255),
+    reset_code_expires_at TIMESTAMP,
     is_deleted BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

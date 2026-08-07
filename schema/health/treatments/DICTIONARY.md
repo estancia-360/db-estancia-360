@@ -16,6 +16,7 @@ Registra tratamientos médicos aplicados a un animal (medicamentos, antibiótico
 | withdrawal_end_date | DATE | SÍ | — | Fecha en que termina el período de retiro; calculada automáticamente por el backend. |
 | responsible | VARCHAR(150) | SÍ | — | Veterinario o responsable del tratamiento. |
 | notes | TEXT | SÍ | — | Observaciones adicionales. |
+| local_id | VARCHAR(100) | SÍ | — | ID generado por el cliente offline, único; permite reintentar el sync sin duplicar el registro. |
 | created_at | TIMESTAMP | NO | CURRENT_TIMESTAMP | Fecha de creación del registro. |
 | updated_at | TIMESTAMP | NO | CURRENT_TIMESTAMP | Fecha de última actualización del registro. |
 

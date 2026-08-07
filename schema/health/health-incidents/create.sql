@@ -44,6 +44,7 @@ CREATE TABLE health_incidents (
     description         VARCHAR(300),
     resolved_at         DATE,
     notes               TEXT,
+    local_id            VARCHAR(100)    UNIQUE,                          -- idempotencia offline
     created_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_incident),

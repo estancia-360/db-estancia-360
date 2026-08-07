@@ -29,7 +29,8 @@
 --   1=Activo | 2=En Observación (cuarentena/seguimiento) | 3=Inactivo (dado de baja)
 --
 -- REGLAS DE NEGOCIO:
---   - RN-05: code es único e irrepetible dentro de la estancia
+--   - RN-05: code es único e irrepetible dentro de la estancia (UNIQUE(id_ranch, code) —
+--     dos estancias distintas SÍ pueden repetir un mismo código de caravana)
 --   - RN-06: Todo animal debe tener un id_productive_status válido en todo momento
 --   - RN-10: Un animal en Baja (id_productive_status=4) no puede reactivarse
 --   - RN-11: Toda cría viva debe tener id_mother NOT NULL
@@ -51,7 +52,7 @@ CREATE TABLE ranch_animals (
     id_productive_status INT,
     id_animal_class INT NOT NULL,
     id_lot BIGINT,
-    code VARCHAR(50) NOT NULL UNIQUE,
+    code VARCHAR(50) NOT NULL,
     birthdate DATE NOT NULL,
     weight NUMERIC(6,2),
     sex CHAR(1) NOT NULL CHECK (sex IN ('M', 'F')),
@@ -66,6 +67,7 @@ CREATE TABLE ranch_animals (
     FOREIGN KEY (id_father) REFERENCES ranch_animals(id_ranch_animal),
     FOREIGN KEY (id_productive_status) REFERENCES productive_statuses(id_productive_status),
     FOREIGN KEY (id_animal_class) REFERENCES animal_classes(id_animal_class),
-    FOREIGN KEY (id_lot) REFERENCES ranch_lots(id_lot)
+    FOREIGN KEY (id_lot) REFERENCES ranch_lots(id_lot),
+    UNIQUE (id_ranch, code)
 );
 ALTER TABLE ranch_animals ADD COLUMN local_id VARCHAR(100) UNIQUE;

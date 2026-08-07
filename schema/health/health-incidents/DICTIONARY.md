@@ -12,6 +12,7 @@ Registra eventos sanitarios sobre un animal que no son vacunaciones ni tratamien
 | description | VARCHAR(300) | SÍ | — | Descripción del incidente (síntomas, observaciones). |
 | resolved_at | DATE | SÍ | — | Fecha en que se resolvió el incidente; NULL si sigue activo. |
 | notes | TEXT | SÍ | — | Notas adicionales del responsable. |
+| local_id | VARCHAR(100) | SÍ | — | ID generado por el cliente offline, único; permite reintentar el sync sin duplicar el registro. |
 | created_at | TIMESTAMP | NO | CURRENT_TIMESTAMP | Fecha de creación del registro. |
 | updated_at | TIMESTAMP | NO | CURRENT_TIMESTAMP | Fecha de última actualización del registro. |
 

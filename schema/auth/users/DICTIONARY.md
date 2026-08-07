@@ -15,6 +15,8 @@ Usuarios registrados en el sistema Estancia 360. Cada usuario puede pertenecer a
 | email | VARCHAR(150) | NO | — | Correo electrónico del usuario |
 | password | VARCHAR(255) | NO | — | Contraseña del usuario, almacenada encriptada (bcrypt) |
 | celphone | VARCHAR(20) | SÍ | — | Número de celular del usuario |
+| reset_code_hash | VARCHAR(255) | SÍ | — | Hash (bcrypt) del código de "recuperar contraseña" vigente; NULL si no hay ninguno pendiente |
+| reset_code_expires_at | TIMESTAMP | SÍ | — | Vencimiento del código de recuperación vigente; NULL si no hay ninguno pendiente |
 | is_deleted | BOOLEAN | SÍ | FALSE | Borrado lógico: indica si el usuario fue dado de baja, preservando el historial de eventos que registró |
 | created_at | TIMESTAMP | SÍ | CURRENT_TIMESTAMP | Fecha de creación del registro |
 | updated_at | TIMESTAMP | SÍ | CURRENT_TIMESTAMP | Fecha de última actualización del registro |
@@ -30,6 +32,7 @@ Usuarios registrados en el sistema Estancia 360. Cada usuario puede pertenecer a
 - El rol típico de quien se registra desde la app es Usuario (id_role=3, ganadero); Admin (2) y Root (1) son roles internos de Estancia 360.
 - Modo offline: el sistema soporta máximo 2 usuarios offline simultáneos por estancia — el Owner y el Administrator de esa estancia (ver `ranch_roles`) — quienes pueden registrar eventos sin conexión y sincronizarlos luego.
 - El borrado de un usuario es siempre lógico (`is_deleted`), nunca físico, para preservar el historial de eventos que haya registrado.
+- El código de recuperar contraseña (6 dígitos) nunca se guarda en texto plano — se hashea igual que `password`, con expiración corta, y se limpia (`NULL`) al usarse o al pedir uno nuevo.
 
 ## Notas técnicas
 

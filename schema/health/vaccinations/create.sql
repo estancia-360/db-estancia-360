@@ -31,6 +31,7 @@ CREATE TABLE vaccinations (
     dose                VARCHAR(50),
     responsible         VARCHAR(150),
     notes               TEXT,
+    local_id            VARCHAR(100)    UNIQUE,                          -- idempotencia offline
     created_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_vaccination),

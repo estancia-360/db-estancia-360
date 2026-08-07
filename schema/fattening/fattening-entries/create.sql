@@ -45,6 +45,7 @@ CREATE TABLE fattening_entries (
         )),
     initial_weight      NUMERIC(6,2),             -- peso base del ciclo; weight_records registra los siguientes
     notes               TEXT,
+    local_id            VARCHAR(100)    UNIQUE,   -- idempotencia offline
     created_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_entry),

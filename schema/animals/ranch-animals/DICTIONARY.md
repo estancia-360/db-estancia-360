@@ -52,3 +52,4 @@ Registro de cada animal bovino de la estancia. Es la entidad central del sistema
 - sex tiene un CHECK constraint que solo admite 'M' o 'F'.
 - id_mother e id_father son autorreferencias a la misma tabla (ranch_animals.id_ranch_animal).
 - local_id tiene constraint UNIQUE y fue agregado mediante ALTER TABLE posterior a la creación original; soporta el patrón offline-first de idempotencia en sincronización.
+- code tiene constraint UNIQUE(id_ranch, code) — no UNIQUE global. Hasta la migración `009_20260804_0000_movil_alineacion` el constraint real era global (UNIQUE(code) a secas), en contradicción con RN-05/RN-03; se corrigió para que dos estancias distintas puedan repetir un código de caravana.

@@ -12,6 +12,7 @@ Registra las vacunas aplicadas a un animal, en cualquier etapa productiva (Cría
 | dose | VARCHAR(50) | SÍ | — | Dosis aplicada (ej. "5ml", "2cc"). |
 | responsible | VARCHAR(150) | SÍ | — | Nombre del responsable o veterinario que aplicó la vacuna. |
 | notes | TEXT | SÍ | — | Observaciones adicionales. |
+| local_id | VARCHAR(100) | SÍ | — | ID generado por el cliente offline, único; permite reintentar el sync sin duplicar el registro. |
 | created_at | TIMESTAMP | NO | CURRENT_TIMESTAMP | Fecha de creación del registro. |
 | updated_at | TIMESTAMP | NO | CURRENT_TIMESTAMP | Fecha de última actualización del registro. |
 
