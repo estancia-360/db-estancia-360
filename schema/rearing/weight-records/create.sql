@@ -42,7 +42,7 @@ CREATE TABLE weight_records (
     id_event            BIGINT          NOT NULL,
     id_lot              BIGINT          NOT NULL,
     local_id            VARCHAR(100)    UNIQUE,
-    weight              NUMERIC(6,2)    NOT NULL,
+    weight              NUMERIC(6,2)    NOT NULL CHECK (weight > 0),
     weight_type         VARCHAR(20)     NOT NULL
         CHECK (weight_type IN ('scale', 'estimated')),
     body_condition      SMALLINT

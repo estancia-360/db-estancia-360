@@ -50,10 +50,10 @@ CREATE TABLE ranch_lots (
             'reproductiva',
             'general'
         )),
-    capacity            INT,                           -- capacidad máxima de animales del lote (RF-01.6)
+    capacity            INT             CHECK (capacity IS NULL OR capacity > 0), -- capacidad máxima de animales del lote (RF-01.6)
     is_active           BOOLEAN         NOT NULL DEFAULT TRUE,
-    updated_at          TIMESTAMP       NOT NULL,
-    created_at          TIMESTAMP       NOT NULL,
+    updated_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at          TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_lot),
     FOREIGN KEY (id_ranch) REFERENCES ranches(id_ranch),
     FOREIGN KEY (id_ranch_pasture) REFERENCES ranch_pastures(id_ranch_pasture)

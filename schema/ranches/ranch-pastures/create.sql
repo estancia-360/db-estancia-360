@@ -28,11 +28,11 @@ CREATE TABLE ranch_pastures (
     id_ranch_pasture bigserial,
     id_ranch int,
     name VARCHAR(50) NOT NULL,
-    area_hectares DECIMAL(12, 2) NOT NULL,
+    area_hectares DECIMAL(12, 2) NOT NULL CHECK (area_hectares > 0),
     description TEXT,
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
-    updated_at TIMESTAMP NOT NULL,
-    created_at TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     primary key (id_ranch_pasture),
     foreign key (id_ranch) references ranches(id_ranch)
 );
