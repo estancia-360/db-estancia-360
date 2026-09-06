@@ -47,3 +47,7 @@ CREATE TABLE users (
     PRIMARY KEY (id_user),
     FOREIGN KEY (id_role) REFERENCES roles(id_role)
 );
+-- email/ci son únicos entre usuarios activos (BUG-10, migración 011). Parcial y no global
+-- a propósito, para permitir reusar el email/ci de una cuenta previamente borrada lógicamente.
+CREATE UNIQUE INDEX uq_users_email_active ON users (email) WHERE is_deleted = false;
+CREATE UNIQUE INDEX uq_users_ci_active ON users (ci) WHERE is_deleted = false;

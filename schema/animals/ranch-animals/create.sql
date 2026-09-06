@@ -70,4 +70,7 @@ CREATE TABLE ranch_animals (
     FOREIGN KEY (id_lot) REFERENCES ranch_lots(id_lot),
     UNIQUE (id_ranch, code)
 );
-ALTER TABLE ranch_animals ADD COLUMN local_id VARCHAR(100) UNIQUE;
+ALTER TABLE ranch_animals ADD COLUMN local_id VARCHAR(100);
+-- local_id es único por estancia, no global (BUG-04, migración 011): dos estancias distintas
+-- pueden generar offline el mismo local_id sin que eso pise el registro de la otra.
+ALTER TABLE ranch_animals ADD CONSTRAINT ranch_animals_ranch_local_id_key UNIQUE (id_ranch, local_id);
